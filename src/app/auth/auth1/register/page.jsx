@@ -6,7 +6,7 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import PageContainer from '@/app/components/container/PageContainer';
 import Logo from '@/app/(DashboardLayout)/layout/shared/logo/Logo';
-import AuthLogin from '../../authForms/AuthLogin';
+import AuthRegister from '../../authForms/AuthRegister';
 import Image from 'next/image';
 
 export default function Login () {
@@ -71,7 +71,7 @@ export default function Login () {
         alignItems="center"
       >
         <Box p={4}>
-          <AuthLogin
+          <AuthRegister
             title="Welcome to Modernize"
             subtext={
               <Typography variant="subtitle1" color="textSecondary" mb={1}>
@@ -85,7 +85,7 @@ export default function Login () {
                 </Typography>
                 <Typography
                   component={Link}
-                  href="/auth/auth1/register"
+                  href="/"
                   fontWeight="500"
                   sx={{
                     textDecoration: 'none',

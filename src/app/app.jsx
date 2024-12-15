@@ -9,7 +9,6 @@ import { SessionProvider } from "next-auth/react"
 
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import "@/utils/i18n";
-import "@/app/api/index";
 
 const MyApp = ({ children, session }) => {
     const theme = ThemeSettings();
@@ -17,7 +16,7 @@ const MyApp = ({ children, session }) => {
 
     return (
         <>
-            <SessionProvider session={session}>
+            {/* <SessionProvider session={session}> */}
                 <AppRouterCacheProvider options={{ enableCssLayer: true }}>
                     <ThemeProvider theme={theme}>
                         <RTL direction={customizer.activeDir}>
@@ -27,7 +26,7 @@ const MyApp = ({ children, session }) => {
                         </RTL>
                     </ThemeProvider>
                 </AppRouterCacheProvider>
-            </SessionProvider>
+            {/* </SessionProvider> */}
         </>
     );
 };
