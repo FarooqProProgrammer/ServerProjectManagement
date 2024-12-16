@@ -9,6 +9,7 @@ import Customizer from "./layout/shared/customizer/Customizer";
 import Navigation from "./layout/horizontal/navbar/Navigation";
 import HorizontalHeader from "./layout/horizontal/header/Header";
 import { useSelector } from 'react-redux';
+import { useSession } from "next-auth/react"
 import { redirect } from 'next/navigation'
 
 const MainWrapper = styled("div")(() => ({
@@ -32,10 +33,7 @@ export default function RootLayout({ children }) {
   const [isMobileSidebarOpen, setMobileSidebarOpen] = useState(false);
   const customizer = useSelector((state) => state.customizer);
   const theme = useTheme();
-
-  const [session,setSession] = useState(true)
-
-
+  const { data: session } = useSession()
   if (session) {
     return (
       <MainWrapper>

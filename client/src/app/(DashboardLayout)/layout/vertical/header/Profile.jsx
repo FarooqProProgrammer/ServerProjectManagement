@@ -8,6 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import Typography from '@mui/material/Typography';
 import * as dropdownData from './data';
+import { useSession, signOut } from "next-auth/react"
 import { IconMail } from '@tabler/icons-react';
 import { Stack } from '@mui/system';
 import Image from 'next/image';
@@ -21,7 +22,7 @@ const Profile = () => {
   const handleClose2 = () => {
     setAnchorEl2(null);
   };
-  
+  const { data: session } = useSession()
   return (
     <Box>
       <IconButton
@@ -69,7 +70,7 @@ const Profile = () => {
           <Avatar src={"/images/profile/user-1.jpg"} alt={"ProfileImg"} sx={{ width: 95, height: 95 }} />
           <Box>
             <Typography variant="subtitle2" color="textPrimary" fontWeight={600}>
-              {/* {session.user.name} */}
+              {session.user.name}
             </Typography>
             <Typography variant="subtitle2" color="textSecondary">
               Designer
@@ -82,7 +83,7 @@ const Profile = () => {
               gap={1}
             >
               <IconMail width={15} height={15} />
-              {/* {session.user.email} */}
+              {session.user.email}
             </Typography>
           </Box>
         </Stack>
